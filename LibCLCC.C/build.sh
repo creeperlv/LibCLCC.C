@@ -10,7 +10,7 @@ for item in Examples/*; do
     dir_path=$(dirname "$item")
     base_name_no_ext="${item_basename%.*}"
     file_path_no_ext="$dir_path/$base_name_no_ext"
-    COMPILE="cc ./Source/*.c $item -o bin/$file_path_no_ext"
+    COMPILE="cc --std=c99 ./Source/*.c $item -o bin/$file_path_no_ext"
     echo "$COMPILE"
     $COMPILE
   fi
