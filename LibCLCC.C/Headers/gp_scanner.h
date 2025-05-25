@@ -8,6 +8,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
+#include "simple_dictionary.h"
 
 #ifndef GPSCANNER_STRLEN
 #define GPSCANNER_STRLEN strlen
@@ -26,7 +27,8 @@ typedef struct gpscanner_config
 {
     GPCHAR *white_space;
     GPCHAR *predefined_single_char_segment;
-    GPCHAR **predefined_multi_char_segment;
+    /// @brief GPCHAR* <->int64_t
+    simple_dict *predefined_multi_char_segment;
     GPCHAR **line_comment_identifier;
     gpscanner_enclosure_pair *closed_comments_identifiers;
     gpscanner_enclosure_pair *quote_identifiers;
@@ -55,6 +57,7 @@ typedef struct gpscanner_segment
     gpscanner_enclosure_pair *quote_identifier;
     struct gpscanner_segment *Pre;
     struct gpscanner_segment *Next;
+    int64_t type;
 } gpscanner_segment;
 typedef struct gpscanner_task
 {
