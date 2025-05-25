@@ -20,6 +20,9 @@ A list that won't shrink when an element is being removed.
 
 A simple generic dictionary based on `Non Shrink List`
 
+### SimpleStack
+
+A simple stack structure that need manual trimming.
 
 ## License
 

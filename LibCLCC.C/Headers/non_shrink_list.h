@@ -12,7 +12,7 @@
 #define NON_SHRINK_LIST_INT int64_t
 #endif
 
-/// @brief return true means break the iteration;
+/// @return true means break the iteration;
 typedef bool (*LibCLCC_non_shrink_iterate_func)(void *, void *, NON_SHRINK_LIST_INT);
 typedef bool (*LibCLCC_non_shrink_destructor)(void *);
 typedef struct non_shrink_list

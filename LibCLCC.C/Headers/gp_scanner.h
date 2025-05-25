@@ -43,6 +43,12 @@ typedef struct gpscanner_task
 {
     gpscanner_config *config;
     gpscanner_read read_func;
+    gpscanner_length length_func;
+    void *payload;
 } gpscanner_task;
 
+gpscanner_segment *LibCLCC_gp_scanner_scan(gpscanner_task *task);
+gpscanner_segment *LibCLCC_gp_scanner_scan_step(gpscanner_task *task);
+void LibCLCC_gpscanner_destory_segment(gpscanner_segment *head);
+void LibCLCC_gpscanner_destory_segment_linked_list(gpscanner_segment *head);
 #endif
