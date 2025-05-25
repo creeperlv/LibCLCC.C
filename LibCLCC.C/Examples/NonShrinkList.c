@@ -18,7 +18,7 @@ int main()
             LibCLCC_RemoveElementFromNonShrinkList(list, 5);
         }
         NON_SHRINK_LIST_INT id = LibCLCC_AddElementToNonShrinkList(list, str + i);
-        printf("Adding char:%c at %d\n", str[i], id);
+        printf("Adding char:%c at %ld\n", str[i], id);
     }
     for (size_t i = 0; i < list->tail_pos; i++)
     {

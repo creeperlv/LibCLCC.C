@@ -24,8 +24,8 @@ bool LibCLCC_RemoveKeyWD(simple_dict *dict, void *key,
                          LibCLCC_non_shrink_destructor key_destructor,
                          LibCLCC_non_shrink_destructor value_destructor);
 bool LibCLCC_SetValue(simple_dict *dict, void *key, void *value);
-void *LibCLCC_DestorySimpleDictionary(simple_dict *dict);
-void *LibCLCC_DestorySimpleDictionaryWD(simple_dict *dict,
+void LibCLCC_DestorySimpleDictionary(simple_dict *dict);
+void LibCLCC_DestorySimpleDictionaryWD(simple_dict *dict,
                                         LibCLCC_non_shrink_destructor key_destructor,
                                         LibCLCC_non_shrink_destructor value_destructor);
 

@@ -16,12 +16,12 @@ simple_dict *LibCLCC_CreateSimpleDictionaryWB(NON_SHRINK_LIST_INT block_size)
 simple_dict *LibCLCC_CreateSimpleDictionaryWB_WC(NON_SHRINK_LIST_INT block_size,
                                                  LibCLCC_dictionary_comparator comparator)
 {
-    non_shrink_list *ValueList = LibCLCC_CreateNonShrinkList(block_size);
+    non_shrink_list *ValueList = LibCLCC_CreateNonShrinkListWB(block_size);
     if (ValueList == NULL)
     {
         return NULL;
     }
-    non_shrink_list *KeyList = LibCLCC_CreateNonShrinkList(block_size);
+    non_shrink_list *KeyList = LibCLCC_CreateNonShrinkListWB(block_size);
     if (KeyList == NULL)
     {
         LibCLCC_DestroyNonShrinkList(ValueList);
@@ -125,15 +125,15 @@ bool LibCLCC_SetValue(simple_dict *dict, void *key, void *value)
     }
     return false;
 }
-void *LibCLCC_DestorySimpleDictionary(simple_dict *dict)
+void LibCLCC_DestorySimpleDictionary(simple_dict *dict)
 {
     LibCLCC_DestroyNonShrinkList(&dict->key);
     LibCLCC_DestroyNonShrinkList(&dict->value);
     free(dict);
 }
-void *LibCLCC_DestorySimpleDictionaryWD(simple_dict *dict,
-                                        LibCLCC_non_shrink_destructor key_destructor,
-                                        LibCLCC_non_shrink_destructor value_destructor)
+void LibCLCC_DestorySimpleDictionaryWD(simple_dict *dict,
+                                       LibCLCC_non_shrink_destructor key_destructor,
+                                       LibCLCC_non_shrink_destructor value_destructor)
 {
     LibCLCC_DestroyNonShrinkListWD(&dict->key, key_destructor);
     LibCLCC_DestroyNonShrinkListWD(&dict->value, value_destructor);
