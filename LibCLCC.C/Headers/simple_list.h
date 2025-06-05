@@ -25,7 +25,7 @@ bool LibCLCC_InitSimpleListWB(simple_list *list, SIMPLE_STACK_INT element_size, 
 void LibCLCC_DestroySimpleList(simple_list *list);
 bool LibCLCC_AddSimpleList(simple_list *list, void *element);
 bool LibCLCC_RemoveLastSimpleList(simple_list *list);
-bool LibCLCC_RemoveSimpleList(simple_list *list, SIMPLE_STACK_INT index);
+bool LibCLCC_RemoveSimpleListItem(simple_list *list, SIMPLE_STACK_INT index);
 bool LibCLCC_GetSimpleListItem(simple_list *list,SIMPLE_STACK_INT index, void *element);
 bool LibCLCC_InsertSimpleListItem(simple_list *list,SIMPLE_STACK_INT index, void *element);
 bool LibCLCC_SwapSimpleListItem(simple_list *list,SIMPLE_STACK_INT index, SIMPLE_STACK_INT index2);

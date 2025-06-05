@@ -48,11 +48,13 @@ inline bool LibCLCC_InitSimpleStackWB(simple_stack *stack, SIMPLE_STACK_INT elem
     return true;
 }
 
-void LibCLCC_DestroySimpleStack(simple_stack *stack){
+void LibCLCC_DestroySimpleStack(simple_stack *stack)
+{
     free(stack->Head);
     free(stack);
 }
-void LibCLCC_DestroySimpleStackNP(simple_stack *stack){
+void LibCLCC_DestroySimpleStackNP(simple_stack *stack)
+{
     free(stack->Head);
 }
 bool LibCLCC_PushSimpleStack(simple_stack *stack, void *element)
@@ -67,7 +69,8 @@ bool LibCLCC_PushSimpleStack(simple_stack *stack, void *element)
         stack->Head = ptr;
         stack->size += stack->block_size;
     }
-    memcpy(stack->Head + stack->count * stack->element_size, element, stack->element_size);
+    if (element != NULL)
+        memcpy(stack->Head + stack->count * stack->element_size, element, stack->element_size);
     stack->count++;
     return false;
 }
