@@ -59,6 +59,7 @@ typedef struct gpscanner_segment
     struct gpscanner_segment *Next;
     int64_t type;
 } gpscanner_segment;
+typedef size_t (*gpscanner_iterative_scan_func)(gpscanner_segment *, void *);
 typedef struct gpscanner_task
 {
     gpscanner_config *config;
@@ -75,7 +76,9 @@ typedef struct gpscanner_task
 gpscanner_segment *LibCLCC_gp_scanner_scan_file(FILE *f);
 gpscanner_segment *LibCLCC_gp_scanner_scan_filename(char *fn);
 gpscanner_segment *LibCLCC_gp_scanner_scan(gpscanner_task *task);
-gpscanner_segment *LibCLCC_gp_scanner_scan_step(gpscanner_task *task);
+int LibCLCC_gp_scanner_iterative_scan(gpscanner_task *task,
+                                      gpscanner_iterative_scan_func func,
+                                      void *payload);
 void LibCLCC_gpscanner_destory_segment(gpscanner_segment *head);
 void LibCLCC_gpscanner_destory_segment_linked_list(gpscanner_segment *head);
 #endif
