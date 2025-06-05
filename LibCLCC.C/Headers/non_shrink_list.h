@@ -1,5 +1,5 @@
-#ifndef __LIBCLCC_SIMPLE_LIST__
-#define __LIBCLCC_SIMPLE_LIST__
+#ifndef __LIBCLCC_NON_SHRINK_LIST__
+#define __LIBCLCC_NON_SHRINK_LIST__
 
 #include <stdint.h>
 #include <stdbool.h>
